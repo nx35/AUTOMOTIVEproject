@@ -39,6 +39,7 @@ $dynamic_content["car_picture"]=$car_picture;
 $dynamic_content["car_title"]=$car_title;
 $dynamic_content["car_details"]=$car_details;
 $dynamic_content["car_price"]=$car_price;
+$dynamic_content["car_id"]=$car_id;
 
 $page = new page($static_content, $dynamic_content);
 
