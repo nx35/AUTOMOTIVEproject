@@ -29,9 +29,10 @@
 </div>
 
 <div class="add_new_car">
+  
     <p class="title"> Add new car</p>
     <div class="contactform">
-        <form action="add_car.php" method="post" enctype="multipart/form-data">
+        <form action="add_car.php" class="add_car_form" method="post" enctype="multipart/form-data" class="add_cars">
             <input type="text" name="name" placeholder="Name" required>
             <input type="text" name="car_type" placeholder="Type" required>
             <input type="text" name="price" placeholder="Price" required>
@@ -44,10 +45,18 @@
             <input type="text" name="doors" placeholder="Doors">
             <input type="text" name="drivetrain" placeholder="Drivetrain">
             <input type="text" name="horsepower" placeholder="Horsepower">
-            <input type="file" accept="image/*" name="picture_location" placeholder="Picture Location" required>
-            <input type="submit" name="submit" id="submit" value="ADD CAR">
+            <input type="file" accept="image/*" id="file-upload" name="picture_location" placeholder="Picture Location" required>
+            <label for="file-upload">Choose a file...</label>
+            <span>
+                <strong>Chosen file:</strong>
+                <span id="file-name">None</span>
+            </span>
+            <script src="../js/file-upload.js"></script>
+            <input type="submit" name="submit" class="add" id="submit" value="ADD CAR">
+
         </form>
     </div>
+    
 </div>
 </div>
 </main>
