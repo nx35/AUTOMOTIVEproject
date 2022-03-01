@@ -8,6 +8,7 @@ if ($site->privileges > 0) {
 }
 
 $feedback = "";
+$purchases = "";
 
 try {
   $stmt = $conn->prepare("SELECT * from contact_form LIMIT 10");
@@ -30,7 +31,26 @@ catch(PDOException $e) {
   echo "Error: " . $e->getMessage();
 }
 
+try {
+  $stmt = $conn->prepare("SELECT purchases.id, users.name as 'user', cars.name as 'car', purchases.date_purchased from purchases left join users on users.id=purchases.user left join cars on cars.id=purchases.car");
+  $stmt->execute();
+  $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+  foreach($stmt as $key=>$val) {
+      $purchases .= "
+      <tr id=\"alt\">
+      <td>".$val['id']."</td>
+      <td>".$val['user']."</td>
+      <td>".$val['car']."</td>
+      <td>".$val['date_purchased']."</td>
+      </tr>";
+  }
+}
+catch(PDOException $e) {
+  echo "Error: " . $e->getMessage();
+}
+
 $dynamic_content["feedback"]=$feedback;
+$dynamic_content["purchases"]=$purchases;
 
 $page = new page($static_content, $dynamic_content);
 
