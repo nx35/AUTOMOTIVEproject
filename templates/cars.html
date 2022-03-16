@@ -29,31 +29,44 @@
     input.category {
       display:none;
     }
-    input.category:checked li {
-      background-color: #f0f0f0;
-      cursor: pointer;
-      border-right: 2px solid #e32636;
-    }
-    input li {
-      background-color: #000000;
+    #categories li {
+      font-size: 13px;
+      padding: 1.5px 1.5px;
     }
 
   </style>
+
   <h3 class="title">CATEGORIES</h3>
-    <label for="small"><input class="category" type="radio"  id="small" name="category" value="1"><li><a><img src="images/cars/cartypes/MICRO.svg" alt="" width="45" style="height: 18px;">Small</a></li></input></label>
+    <label for="small"><input onClick="check(this)" class="category" type="radio"  id="small" name="category" value="1"><li id="smallli"><img src="images/cars/cartypes/MICRO.svg" alt="" width="45" style="height: 18px;">Small</li></input></label>
 
-    <label for="hatchback"><input class="category" type="radio"  id="hatchback" name="category" value="2"><li><a><img src="images/cars/cartypes/HATCHBACK1.svg" alt="" width="45">Hatchback</a></li></input></label>
+    <label for="hatchback"><input onClick="check(this)" class="category" type="radio"  id="hatchback" name="category" value="2"><li id="hatchbackli"><img src="images/cars/cartypes/HATCHBACK1.svg" alt="" width="45">Hatchback</li></input></label>
 
-    <label for="minivan"><input class="category" type="radio"  id="minivan" name="category" value="3"><li><a><img src="images/cars/cartypes/MINIVAN1.svg" alt="" width="45">Minivan</a></li></input></label>
+    <label for="minivan"><input onClick="check(this)" class="category" type="radio"  id="minivan" name="category" value="3"><li id="minivanli"><img src="images/cars/cartypes/MINIVAN1.svg" alt="" width="45">Minivan</li></input></label>
 
-    <label for="estate"><input class="category" type="radio"  id="estate" name="category" value="4"><li><a><img src="images/cars/cartypes/CUV.svg" alt="" width="45">Estate</a></li></input></label>
+    <label for="estate"><input onClick="check(this)" class="category" type="radio"  id="estate" name="category" value="4"><li id="estateli"><img src="images/cars/cartypes/CUV.svg" alt="" width="45">Estate</li></input></label>
 
-    <label for="sedan"><input class="category" type="radio"  id="sedan" name="category" value="7"><li><a><img src="images/cars/cartypes/SEDAN.svg" alt="" width="45">Sedan</a></li></input></label>
+    <label for="sedan"><input onClick="check(this)" class="category" type="radio"  id="sedan" name="category" value="7"><li id="sedanli"><img src="images/cars/cartypes/SEDAN.svg" alt="" width="45">Sedan</li></input></label>
 
-    <label for="sport"><input class="category" type="radio"  id="sport" name="category" value="5"><li><a><img src="images/cars/cartypes/SUPERCAR.svg" alt="" width="45">Sport</a></li></input></label>
+    <label for="sport"><input onClick="check(this)" class="category" type="radio"  id="sport" name="category" value="5"><li id="sportli"><img src="images/cars/cartypes/SUPERCAR.svg" alt="" width="45">Sport</li></input></label>
 
-    <label for="suv"><input class="category" type="radio"  id="suv" name="category" value="6"><li><a><img src="images/cars/cartypes/SUV1.svg" alt="" width="45">SUV</a></li></input></label>
+    <label for="suv"><input onClick="check(this)" class="category" type="radio"  id="suv" name="category" value="6"><li id="suvli"><img src="images/cars/cartypes/SUV1.svg" alt="" width="45">SUV</li></input></label>
 </ul>
+<script>
+  function check(element){
+    element.checked=true;
+    
+    categories = document.querySelectorAll("#categories li");
+    console.log(categories);
+    for (i=0; i<7; i++) {
+      if (categories[i].id == element.id+"li") {
+        categories[i].style.backgroundColor="#f0f0f0";
+      }
+      else {
+        categories[i].style.backgroundColor="white";
+      }
+    }
+  }
+</script>
 <ul class="aside" id="fuel">
   <h3 class="title">FUEL</h3>
   <li>
